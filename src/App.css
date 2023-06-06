@@ -31,3 +31,60 @@
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
 }
+
+/* Card part  */
+
+.CardList {
+  display: flex;
+}
+
+.Card {
+  width: 200px;
+  height: fit-content;
+  padding: 12px;
+  border-radius: 12px;
+  background-color: #3a8ac0;
+  font-size: 14px;
+  color: #fff;
+  margin-left: 24px;
+  box-shadow: 3px 3px 12px 1px rgba(0,0,0,0.25);
+}
+
+.Card:first-child {
+  margin-left: 0; 
+}
+
+.MainInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Title {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.Description {
+  margin-top: 4px;
+  font-size: 16px;
+}
+
+.Tempereture {
+  margin-top: 12px;
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.Tempereture:after {
+  content: "°";
+}
+
+.Information {
+  margin-top: 12px;
+}
+
+.Information > div {
+  margin-top: 4px;
+}
+
