@@ -2,9 +2,9 @@ import React, { useState, useRef } from 'react';
 
 import '../App.css';
 
-export const Input = ({setCitiesList}) => {
+export const Input = ({ setCitiesList }) => {
     const [inputValue, setInputValue] = useState('');
-    const inputRef = useRef(null)
+    const inputRef = useRef(null);
 
     const handleOnClick = () => {
         setCitiesList((currentArray) =>  [...currentArray, inputValue]);
