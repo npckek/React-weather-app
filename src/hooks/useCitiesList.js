@@ -10,6 +10,11 @@ const reducer = (state, action) => {
             const newState = {...state, citiesList :[...state.citiesList, action.payload]};
             return newState;
         }
+        case 'DELETE_CITy': {
+            const oldArray = state.citiesList;
+            const newArray = oldArray.filter( el => el !== action.payload);
+            return {...state, citiesList: newArray};
+        }
         default: 
             return initialState;
     }
