@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 
 import '../App.css';
 
-export const Input = ({ dispatch, inputValue }) => {
+export const Input = ({ dispatch, inputValue, editingCity }) => {
     const inputRef = useRef(null);
 
     const handleOnAdd = () => {
@@ -41,8 +41,13 @@ export const Input = ({ dispatch, inputValue }) => {
     return (
         <div className='InputWrap'>
             <input className='Input' onChange={handleOnChange} value={inputValue} ref={inputRef} />
-            <button className='Button' onClick={handleOnAdd}>+</button>
-            <button className='Button' onClick={handleOnDone}>Done</button>
+            {
+                editingCity
+                    ?
+                    <button className='Button' onClick={handleOnDone}>Done</button>
+                    :
+                    <button className='Button' onClick={handleOnAdd}>+</button>
+            }
         </div>
     )
 }
