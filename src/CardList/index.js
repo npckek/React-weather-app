@@ -5,16 +5,35 @@ import { Card } from '../Card';
 import '../App.css';
 
 export class CardList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      orderBy: 'asc',
+    };
+    this.handleOnChange = this.handleOnChange.bind(this);
+  }
+
+  handleOnChange(event){
+    this.setState({
+      orderBy: event.target.value,
+    });
+  }
   render() {
+    const { orderBy } = this.state;
+    const { citiesList } = this.props;
+    const sortedCitiesList = citiesList.sort();
+    if (orderBy === 'desc') {
+      sortedCitiesList.reverse();
+    }
     return (
       <>
-        <select className='Select'>
-          <option value='name' >By name</option>
-          <option value='temp '>By temperature</option>
+        <select className='Select' value={ orderBy } onChange={this.handleOnChange}>
+          <option value='desc'>By name desc</option>
+          <option value='asc' >By name asc</option>
         </select>
         <div className='CardList'>
           {
-            this.props.citiesList.map(city => <Card key={city} city={city} />)
+            citiesList.map(city => <Card key={city} city={city} />)
           }
         </div>
       </>
