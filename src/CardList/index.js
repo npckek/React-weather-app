@@ -2,9 +2,11 @@ import React from 'react';
 
 import { Card } from '../Card';
 
+import { withGlobalState } from '../hocs/withGlobalState';
+
 import '../App.css';
 
-export class CardList extends React.Component {
+class CardListNoState extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -41,13 +43,4 @@ export class CardList extends React.Component {
   }
 }
 
-// export const CardList = () => {
-//   const { state: { citiesList } } = useContext(GlobalContext);
-//   return (
-//     <div className='CardList'>
-//       {
-//         citiesList.map(city => <Card key={city} city={city} />)
-//       }
-//     </div>
-//   )
-// }
+export const CardList = withGlobalState(CardListNoState);
