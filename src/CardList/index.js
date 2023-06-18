@@ -22,7 +22,7 @@ class CardListNoState extends React.Component {
   }
   render() {
     const { orderBy } = this.state;
-    const { citiesList } = this.props;
+    const { citiesList } = this.props.state;
     const sortedCitiesList = citiesList.sort();
     if (orderBy === 'desc') {
       sortedCitiesList.reverse();

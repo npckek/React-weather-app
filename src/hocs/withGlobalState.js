@@ -1,4 +1,4 @@
-import { useContext, Component } from "react";
+import { useContext } from "react";
 
 import { GlobalContext } from "../App";
 
