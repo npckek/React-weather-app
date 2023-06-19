@@ -6,7 +6,7 @@ import { useWeather } from '../hooks/useWeather';
 
 import '../App.css';
 
-export const Card = memo(({ city }) => {
+const CardNoMemo = ({ city }) => {
     const data = useWeather(city);
     const { dispatch } = useContext(GlobalContext);
     if (!data) return null;
@@ -48,4 +48,6 @@ export const Card = memo(({ city }) => {
             </div>
         </div>
     );
-})
+};
+
+export const Card = memo(CardNoMemo);
