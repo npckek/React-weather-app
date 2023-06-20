@@ -27,6 +27,9 @@ class CardListNoState extends React.Component {
     if (orderBy === 'desc') {
       sortedCitiesList.reverse();
     }
+    if (sortedCitiesList.length === 3){
+        throw new Error('I crashed!')
+    }
     return (
       <>
         <select className='Select' value={ orderBy } onChange={this.handleOnChange}>
@@ -35,7 +38,7 @@ class CardListNoState extends React.Component {
         </select>
         <div className='CardList'>
           {
-            citiesList.map(city => <Card key={city} city={city} />)
+            sortedCitiesList.map(city => <Card key={city} city={city} />)
           }
         </div>
       </>
