@@ -27,7 +27,7 @@ class CardListNoState extends React.Component {
     if (orderBy === 'desc') {
       sortedCitiesList.reverse();
     }
-    if (sortedCitiesList.length === 3){
+    if (sortedCitiesList.length === 5){
         throw new Error('I crashed!')
     }
     return (

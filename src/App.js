@@ -1,5 +1,9 @@
 import React from 'react';
 
+import {
+  BrowserRouter
+} from "react-router-dom";
+
 import './App.css';
 
 import { Input } from './Input';
@@ -15,14 +19,16 @@ export const GlobalContext = React.createContext();
 function App() {
   const [state, dispatch] = useCitiesList();
   return (
-    <GlobalContext.Provider value={{ state , dispatch }}>
-      <div className="Main">
-        <Input />
-        <ErrorBoundary>
-          <CardList />
-        </ErrorBoundary>
-      </div>
-    </GlobalContext.Provider>
+    <BrowserRouter>
+      <GlobalContext.Provider value={{ state, dispatch }}>
+        <div className="Main">
+          <Input />
+          <ErrorBoundary>
+            <CardList />
+          </ErrorBoundary>
+        </div>
+      </GlobalContext.Provider>
+    </BrowserRouter>
   );
 }
 
