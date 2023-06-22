@@ -1,4 +1,6 @@
-import React, { memo , useContext } from 'react';
+import React, { memo, useContext } from 'react';
+
+import { Link } from "react-router-dom";
 
 import { GlobalContext } from '../App';
 
@@ -31,7 +33,7 @@ const CardNoMemo = ({ city }) => {
     };
 
     return (
-        <div className='Card'>
+        <Link to={`/city/${city.toLowerCase()}`} className='Card'>
             <div className='ActionButtonWrap'>
                 <button className='ActionButton' onClick={handleOnEdit}>edit</button>
                 <button className='ActionButton' onClick={handleOnDelete}>X</button>
@@ -46,7 +48,7 @@ const CardNoMemo = ({ city }) => {
                 <div>Humidity: {humidity}</div>
                 <div>Feels like:  {feels_like}</div>
             </div>
-        </div>
+        </Link>
     );
 };
 
