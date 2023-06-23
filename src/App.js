@@ -1,17 +1,12 @@
 import React from 'react';
 
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import './App.css';
 
 import { useCitiesList } from './hooks/useCitiesList';
 
-import { ErrorBoundary } from './ErrorBoundary';
-
-import { Input } from './Input';
-
-import { CardList } from './CardList';
-
+import { MainPage } from './MainPage';
 import { SingleCity } from './SingleCity';
 
 export const GlobalContext = React.createContext();
@@ -19,21 +14,14 @@ export const GlobalContext = React.createContext();
 function App() {
   const [state, dispatch] = useCitiesList();
   return (
-    <Router>
+    <BrowserRouter>
       <GlobalContext.Provider value={{ state, dispatch }}>
-        <Route path="/home">
-          <div className="Main">
-            <Input />
-            <ErrorBoundary>
-              <CardList />
-            </ErrorBoundary>
-          </div>
-        </Route>
-        <Route path="/city/:city">
-          <SingleCity />
-        </Route>
+        <Routes>
+          <Route path="/home" element={<MainPage />} />
+          <Route path="/city/:city" element={<SingleCity />} />
+        </Routes>
       </GlobalContext.Provider>
-    </Router>
+    </BrowserRouter>
   );
 }
 
