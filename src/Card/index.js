@@ -1,4 +1,4 @@
-import React, { memo, useContext } from 'react';
+import React, { memo, useContext, useEffect } from 'react';
 
 import { Link, useHistory, useRouteMatch } from 'react-router-dom';
 
@@ -8,11 +8,20 @@ import { useWeather } from '../hooks/useWeather';
 
 import '../App.css';
 
-const CardNoMemo = ({ city }) => {
+const CardNoMemo = ({ city, setCityCoord }) => {
     const data = useWeather(city);
     const history = useHistory();
     const isHome = Boolean(useRouteMatch('/home'));
     const { dispatch } = useContext(GlobalContext);
+    useEffect(() => {
+        if (data && data.coord.lat && data.coord.lon && setCityCoord) {
+            setCityCoord({
+                lat: data.coord.lat,
+                lon: data.coord.lon,
+            });
+        }
+    }, [data, setCityCoord]) 
+
     if (!data) return null;
     const { name, weather, main } = data;
     const { description, icon } = weather[0];

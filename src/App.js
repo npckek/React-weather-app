@@ -29,7 +29,7 @@ function App() {
               <CardList />
             </ErrorBoundary>
           </Route>
-          <Route path="/city/:city" render={SingleCity} />
+          <Route path="/city/:city" component={SingleCity} />
         </div>;
       </GlobalContext.Provider>
     </BrowserRouter>
