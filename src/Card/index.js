@@ -1,6 +1,6 @@
 import React, { memo, useContext } from 'react';
 
-import { Link } from "react-router-dom";
+import { Link, useHistory, useRouteMatch } from 'react-router-dom';
 
 import { GlobalContext } from '../App';
 
@@ -10,6 +10,8 @@ import '../App.css';
 
 const CardNoMemo = ({ city }) => {
     const data = useWeather(city);
+    const history = useHistory();
+    const isHome = Boolean(useRouteMatch('/home'));
     const { dispatch } = useContext(GlobalContext);
     if (!data) return null;
     const { name, weather, main } = data;
@@ -30,10 +32,31 @@ const CardNoMemo = ({ city }) => {
             payload: city,
 
         })
+        history.push('/home');
     };
 
+    if (isHome) {
+        return (
+            <Link to={`/city/${city.toLowerCase()}`} className='Card'>
+                <div className='ActionButtonWrap'>
+                    <button className='ActionButton' onClick={handleOnEdit}>edit</button>
+                    <button className='ActionButton' onClick={handleOnDelete}>X</button>
+                </div>
+                <div className='MainInfo'>
+                    <img className='Icon' src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt='Icon' />
+                    <div className='Title'>{name}</div>
+                    <div className='Description'>{description}</div>
+                    <div className='Tempereture'>{temp.toFixed()}</div>
+                </div>
+                <div className='Information'>
+                    <div>Humidity: {humidity}</div>
+                    <div>Feels like:  {feels_like}</div>
+                </div>
+            </Link>
+        )
+    }
     return (
-        <Link to={`/city/${city.toLowerCase()}`} className='Card'>
+        <div className='Card'>
             <div className='ActionButtonWrap'>
                 <button className='ActionButton' onClick={handleOnEdit}>edit</button>
                 <button className='ActionButton' onClick={handleOnDelete}>X</button>
@@ -48,7 +71,7 @@ const CardNoMemo = ({ city }) => {
                 <div>Humidity: {humidity}</div>
                 <div>Feels like:  {feels_like}</div>
             </div>
-        </Link>
+        </div>
     );
 };
 
