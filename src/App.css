@@ -106,3 +106,28 @@
   margin-top: 4px;
 }
 
+/* SingleCity start */
+
+.SingleCityWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* SingleCity finish */
+
+.DailyCards {
+  margin-top: 24px;
+  display: flex;
+  border-radius: 12px;
+  overflow-x: scroll;
+  width: 100%;
+  padding: 20px ;
+}
+
+.DailyCard {
+  background-color: #3a8ac0;
+  border-radius: 12px;
+  margin-left: 8px;
+  box-shadow: 3px 3px 12px 1px rgba(0,0,0,0.25)
+}
