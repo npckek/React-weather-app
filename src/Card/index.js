@@ -55,7 +55,7 @@ const CardNoMemo = ({ city, setCityCoord }) => {
                     <img className='Icon' src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt='Icon' />
                     <div className='Title'>{name}</div>
                     <div className='Description'>{description}</div>
-                    <div className='Tempereture'>{temp.toFixed()}</div>
+                    <div className='Tempereture TemperetureIcon'>{temp.toFixed()}</div>
                 </div>
                 <div className='Information'>
                     <div>Humidity: {humidity}</div>
@@ -74,7 +74,7 @@ const CardNoMemo = ({ city, setCityCoord }) => {
                 <img className='Icon' src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt='Icon' />
                 <div className='Title'>{name}</div>
                 <div className='Description'>{description}</div>
-                <div className='Tempereture'>{temp.toFixed()}</div>
+                <div className='Tempereture TemperetureIcon'>{temp.toFixed()}</div>
             </div>
             <div className='Information'>
                 <div>Humidity: {humidity}</div>

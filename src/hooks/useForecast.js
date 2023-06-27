@@ -8,7 +8,7 @@ export const useForecast = (coords) => {
     useEffect(() => {
         if (coords != null) {
             const { lat, lon } = coords;
-            fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&exlude=alerts,current,minutely,hourly&appid=${API_KEY}`)
+            fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&exlude=alerts,current,minutely,hourly&appid=${API_KEY}&units=metric`)
                 .then(res => res.json())
                 .then(setData);
         }
