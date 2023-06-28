@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 
 import '../App.css';
 
@@ -11,10 +12,10 @@ import { DailyCard } from '../DailyCard';
 export const SingleCity = (props) => {
     const [cityCoord, setCityCoord] = useState(null);
     const data = useForecast( cityCoord );
-    console.log('data', data);
     const { city } = props.match.params;
     return ( 
         <div className="SingleCityWrap">
+            <Link to='/home'>Go back</Link>
             <Card city={city} setCityCoord={setCityCoord}  />
             {data && 
                 <div className="DailyCards">
