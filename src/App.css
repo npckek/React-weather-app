@@ -138,3 +138,14 @@
 .TemperetureIcon:after {
   content: "°";
 }
+
+.GoBack {
+  color: #3a8ac0;
+  margin-bottom: 24px;
+  text-decoration: none;
+  font-size: large;
+}
+
+.GoBack:hover {
+  text-decoration: underline;
+}
