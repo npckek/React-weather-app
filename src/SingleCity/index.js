@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import '../App.css';
 
@@ -10,10 +10,11 @@ import { useForecast } from "../hooks/useForecast";
 
 import { DailyCard } from '../DailyCard';
 
-export const SingleCity = (props) => {
+export const SingleCity = () => {
+    const params = useParams();
     const [cityCoord, setCityCoord] = useState(null);
     const data = useForecast( cityCoord );
-    const { city } = props.match.params;
+    const { city } = params;
     return ( 
         <div className="SingleCityWrap">
             <Link to='/home' className="GoBack">Go back</Link>
